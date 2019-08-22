@@ -2,8 +2,16 @@ const path = require('path')
 
 module.exports = {
     entry: {
-        index: ['babel-polyfill', './src/index.js'],
-        edit: ['babel-polyfill', './src/edit.js']
+        index: [
+            'core-js/stable',
+            'regenerator-runtime/runtime',
+            './src/index.js'
+        ],
+        edit: [
+            'core-js/stable',
+            'regenerator-runtime/runtime',
+            './src/edit.js'
+        ]
     },
     output: {
         path: path.resolve(__dirname, 'public/scripts'),
@@ -16,7 +24,7 @@ module.exports = {
             use: {
                 loader: 'babel-loader',
                 options: {
-                    presets: ['env']
+                    presets: ['@babel/preset-env']
                 }
             }
         }]
